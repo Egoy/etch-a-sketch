@@ -12,14 +12,16 @@
     <div class="flex-container">
         <div class="title">
             <h1>SketchPad</h1>
+            <div class="status">Status: Coloring</div>
         </div>
         <div class="content">
             <div class="board"></div>
             <div class="buttons">
-                <button>Black</button>
-                <button>White</button>
-                <button>Random</button>
-                <button>Reset</button>
+                <button onClick="changeColor('black')">Black</button>
+                <button onClick="changeColor('white')">Eraser</button>
+                <button onClick="changeColor('gray')">Gray</button>
+                <button onClick="changeColor('random')">Random</button>
+                <button onClick="resetBoard()">Reset</button>
             </div>
         </div>
         <div>
