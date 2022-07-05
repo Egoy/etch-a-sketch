@@ -1,19 +1,14 @@
-const container = document.querySelector(".grid--container");
-container.style.backgroundColor = '#333333'
-let grid = 16;
-// function createGrid() {
-//     for (i = 0; i <= 16; i++) {
-//         let grid = document.createElement("div");
-//         console.log(grid);
-//     }
-// }
+// Create the 16 x 16 grid
+const container = document.getElementById("container");
 
-const createGrid = () => {
-    const container = document.querySelector(".grid--container");
-    for (i = 0; i < 16; i++) {
-        const grid = document.createElement('div');
-        grid.className = "grid--box";
-        container.appendChild(grid);
-    }
-}
-createGrid();
+function makeRows(rows, cols) {
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+    for (c = 0; c < (rows * cols); c++) {
+        let cell = document.createElement("div");
+        cell.innerText = (c + 1);
+        container.appendChild(cell).className = "grid-item";
+    };
+};
+
+makeRows(16, 16);
