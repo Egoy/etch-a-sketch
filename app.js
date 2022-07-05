@@ -1,14 +1,31 @@
-// Create the 16 x 16 grid
-const container = document.getElementById("container");
+function populateBoard (size) {
+    let board = document.querySelector('.board')
+        board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    let squares = board.querySelectorAll('div');
+    squares.forEach((div) => div.remove());
 
-function makeRows(rows, cols) {
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
-    for (c = 0; c < (rows * cols); c++) {
-        let cell = document.createElement("div");
-        cell.innerText = (c + 1);
-        container.appendChild(cell).className = "grid-item";
-    };
-};
+    let amount = size * size;
+    for(let i = 0; i<amount; i++) {
+        let square = document.createElement('div');
+        square.addEventListener('mouseover', colorSquare);
+        square.style.backgroundColor = "blue";
+        board.insertAdjacentElement('beforeend', square);
+    }
+}
 
-makeRows(16, 16);
+function changeSize(input) {
+    populateBoard(input);
+}
+
+function changeSize(input) {
+    if(input >=2 && input <= 100) {
+        populateBoard(input);
+    } else {
+        alert("Too many squares");
+    }
+}
+
+function colorSquare() {
+    this.style.backgroundColor = "black";
+}
