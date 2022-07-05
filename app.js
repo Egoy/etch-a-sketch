@@ -14,6 +14,7 @@ function populateBoard (size) {
         board.insertAdjacentElement('beforeend', square);
     }
 }
+populateBoard(16);
 
 function changeSize(input) {
     populateBoard(input);
